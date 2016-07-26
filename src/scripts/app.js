@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 
+import Home from './views/homeView'
+import GameView from './views/gameView'
+
 
 const app = function() {
     var AppRouter = Backbone.Router.extend({
