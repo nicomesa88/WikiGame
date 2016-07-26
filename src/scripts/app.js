@@ -12,7 +12,7 @@ import LoginView from './views/loginView'
 const app = function() {
     var AppRouter = Backbone.Router.extend({
         routes: {
-            'home':'handleHome',
+            '':'handleHome',
             'game/play':'handleLiveGame',
             'about': 'handleAbout',
             'login': 'handleLogin',
@@ -36,7 +36,7 @@ const app = function() {
         },
 
         redirectHome: function() {
-            location.hash = 'home'
+            location.hash = ''
         },
 
         initialize: function(){
