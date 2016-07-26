@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 
+import About from './views/aboutView'
 import Home from './views/homeView'
 import GameView from './views/gameView'
+import LoginView from './views/loginView'
 
 
 const app = function() {
@@ -12,18 +14,28 @@ const app = function() {
         routes: {
             'home':'handleHome',
             'game/play':'handleLiveGame',
+            'about': 'handleAbout',
+            'login': 'handleLogin',
             '*cathAll': 'redirectHome'
         },
 
-        handleHome: function () {
+        handleAbout:function() {
+            ReactDOM.render( <About/>, document.querySelector('.container'))
+        },
+
+        handleHome: function() {
             ReactDOM.render( <Home/>, document.querySelector('.container'))
         },
 
-        handleLiveGame: function () {
-            ReactDOM.render( <GameView />, document.querySelector('.container'))
+        handleLiveGame: function() {
+            ReactDOM.render( <GameView/>, document.querySelector('.container'))
         },
 
-        redirectHome: function () {
+        handleLogin:function() {
+            ReactDOM.render( <LoginView/>, document.querySelector('.container'))
+        },
+
+        redirectHome: function() {
             location.hash = 'home'
         },
 

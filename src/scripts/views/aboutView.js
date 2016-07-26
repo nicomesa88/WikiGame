@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from './header'
 
-const Home = React.createClass({
-    render: function(){
+const About = React.createClass({
+    render: function() {
         return (
-            <div className = 'home'>
+            <div className = 'aboutView'>
                 <Header />
             </div>
         )
     }
 })
 
-export default Home
+export default About
