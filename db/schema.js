@@ -10,13 +10,18 @@ const usersSchema = new Schema({
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-  
+
    // example of optional fields
   name:      { type: String },
   createdAt: { type: Date, default: Date.now }
 
 })
 
+const gameSchema = new Schema({
+
+})
+
 module.exports = {
   User: createModel('User', usersSchema)
 }
+

@@ -2,6 +2,18 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
 
+
+const RandomArticleModel = Backbone.Model.extend({
+	url: 'https://en.wikipedia.org/api/rest_v1/page/random/title',
+	title: 'title'
+
+})
+
+const RandomArticleCollection = Backbone.Collection.extend({
+	model: RandomArticleModel,
+	url: 'https://en.wikipedia.org/api/rest_v1/page/random/title'
+})
+
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
 	urlRoot: '/api/users',
@@ -21,12 +33,12 @@ UserAuthModel.register = function(newUserData) {
 }
 
 UserAuthModel.login = function(email, password) {
-	if(!email || !password || email === '' || password === '') {  
-		throw new Error("User.login(«email», «password») method needs strings for email, password arguments") 
+	if(!email || !password || email === '' || password === '') {
+		throw new Error("User.login(«email», «password») method needs strings for email, password arguments")
 	}
 
-	if(typeof email !== 'string' || typeof password !== 'string' ) {  
-		throw new Error("User.login(«email», «password») email + password arguments should both be strings") 
+	if(typeof email !== 'string' || typeof password !== 'string' ) {
+		throw new Error("User.login(«email», «password») email + password arguments should both be strings")
 	}
 
 	return $.ajax({
@@ -64,4 +76,4 @@ const User = UserAuthModel.extend({
 	}
 })
 
-export { User }
+export { User, RandomArticleModel, RandomArticleCollection }
