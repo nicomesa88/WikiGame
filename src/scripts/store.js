@@ -6,9 +6,14 @@ const GAME_STORE = _.extend(Backbone.Events,{
 	data:{
 		collection: new RandomArticleCollection(),
 		start: new RandomArticleModel(),
+		startSummary: '',
 		end: new RandomArticleModel(),
+		endSummary: '',
 		startTitle: "",
-		endTitle: ""
+		endTitle: "",
+		articleHTML: '',
+		articlePath: [],
+		gameTime: 0
 	},
 
 	getData: function(){
@@ -31,6 +36,7 @@ const GAME_STORE = _.extend(Backbone.Events,{
 	initialize: function() {
 		this.data.start.on('sync update', this.emitChange.bind(this))
 	}
+
 })
 
 GAME_STORE.initialize()

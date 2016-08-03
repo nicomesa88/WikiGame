@@ -4,6 +4,8 @@ import ACTIONS from '../actions'
 import {RandomArticleModel, RandomArticleCollection} from '../models/models'
 import GAME_STORE from '../store'
 
+console.log('homeview hi')
+
 const Home = React.createClass({
 
 	getInitialState: function() {
@@ -19,8 +21,6 @@ const Home = React.createClass({
 	},
 
 	componentWillUnmount: function() {
-		ACTIONS.getStartArticle()
-		ACTIONS.getEndArticle()
 		GAME_STORE.off('updateComponent')
 	},
 
@@ -36,14 +36,18 @@ const Home = React.createClass({
 
 const ChallengeBox = React.createClass({
 
+
 	render: function(){
+		console.log(`#game?start=${this.props.startColl}&end=${this.props.endColl}`)
 		return (
 			<div className = 'challegeBox'>
-				<input type = 'text' name = 'name' placeholder = 'Enter Name'/>
+				{//<input type = 'text' name = 'name' placeholder = 'Enter Name'/>
+			}
 				<StartPoint startColl = {this.props.startColl}/>
 				<EndPoint endColl = {this.props.endColl}/>
-				<button>PICK AGAIN</button>
-				<button type = 'submit'>PLAY</button>
+				{//<button>PICK AGAIN</button>/
+				}
+				<a href = {`#game?start=${this.props.startColl}&end=${this.props.endColl}`}>PLAY</a>
 			</div>
 		)
 	}
@@ -59,7 +63,7 @@ const StartPoint = React.createClass({
 	render: function(){
 		return(
 			<div className = 'startPoint'>
-			<p>Start: {this.props.startColl}</p>
+			<h3>Start: {this.props.startColl.replace(/_/ig, ' ')}</h3>
 			</div>
 		)
 	}
@@ -75,7 +79,7 @@ const EndPoint = React.createClass({
 	render: function(){
 		return(
 			<div className = 'endPoint'>
-			<p>End Point: {this.props.endColl}</p>
+			<h3>End Point: {this.props.endColl.replace(/_/ig, ' ')}</h3>
 			</div>
 		)
 	}

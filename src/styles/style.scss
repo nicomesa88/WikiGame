@@ -1,10 +1,103 @@
+$myRed: #E46D2F;
+$myRed2: #D87740;
+$myYellow: #EFA73A;
+$myYellow2: #FFC75E;
+$myGreen: #469E7B;
+$myGreen2: #7CC9A5;
+$myPurple: #A06497;
+$myPink: #E283AB;
+$myNavy: #374355;
+$myNavy2: #2C587D;
+$myLightBlue: #51B5E8;
+$myLightBlue2: #37B4CA;
+$myOffWhite: #FEEFD0;
+$myWhite: #FFFFFF;
+
 * {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Muli', Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
+	background: $myOffWhite;
 }
 
-h1 {
-	font-size: 300px;
+#headerContainer {
+
 	text-align: center;
-	color: fuchsia;
+
+	h1 {
+		font-size: 100px;
+		color: $myLightBlue;
+		margin: 1%;
+	}
+	h2 {
+		color: $myRed;
+		padding-bottom: 3%;
+	}
+
+	#navBar {
+
+		text-align: center;
+
+		a {
+			background: $myPink;
+			color: white;
+			padding: 1.5%;
+			margin: 2%;
+			text-decoration: none;
+		}
+	}
+}
+
+.home {
+	text-align: center;
+
+	.challegeBox{
+
+		margin-top: 5%;
+
+		h3 {
+			color: $myGreen;
+			margin-bottom: 5%;
+		}
+
+		a {
+			margin-top: 10%;
+			background: $myPink;
+			color: $myWhite;
+			padding: 1.5%;
+			margin: 2%;
+			text-decoration: none;
+		}
+	}
+}
+
+.gameContainer {
+
+
+
+	.sidebar{
+		margin-top: 5%;
+		margin-right: 1%;
+		margin-left: 2%;
+		border: 3px solid $myYellow;
+		display: inline-block;
+		width: 20%;
+		height: 75vh;
+		vertical-align: top;
+
+		h3{
+			color: $myGreen;
+			margin-left: 3%;
+		}
+
+	}
+
+	.wikiView{
+		margin-top: 5%;
+		border: 3px solid $myNavy2;
+		display: inline-block;
+		width: 75%;
+		height: 75vh;
+		overflow-y: scroll;
+		padding: 1%;
+	}
 }

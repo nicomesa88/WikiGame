@@ -2,19 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import {RandomArticleModel, RandomArticleCollection} from './models/models'
 
 import About from './views/aboutView'
 import Home from './views/homeView'
 import GameView from './views/gameView'
 import LoginView from './views/loginView'
 
-console.log('yolo3')
+console.log('yolo4')
 
 const app = function() {
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'':'handleHome',
-			'game/play':'handleLiveGame',
+			'game?start=:startArticle&end=:endArticle':'handleLiveGame',
 			'about': 'handleAbout',
 			'login': 'handleLogin',
 			'*cathAll': 'redirectHome'
@@ -28,8 +29,9 @@ const app = function() {
 			ReactDOM.render( <Home/>, document.querySelector('.container'))
 		},
 
-		handleLiveGame: function() {
-			ReactDOM.render( <GameView/>, document.querySelector('.container'))
+		handleLiveGame: function(startArticle, endArticle) {
+			console.log(startArticle,endArticle)
+			ReactDOM.render( <GameView articleHTML = {RandomArticleCollection}/>, document.querySelector('.container'))
 		},
 
 		handleLogin:function() {

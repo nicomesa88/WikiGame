@@ -5,7 +5,7 @@ const Header = React.createClass({
 		return (
 			<div id = 'headerContainer'>
 				<h1>Wiki Clicks</h1>
-				<h3>The Wikipedia Game</h3>
+				<h2>The Wikipedia Game</h2>
 				<NavBar />
 			</div>
 		)
@@ -18,7 +18,6 @@ const NavBar = React.createClass({
 			<div id = 'navBar'>
 				<a href = '#home'>Home</a>
 				<a href = '#about'>About</a>
-				<a href = '#login'>Log In</a>
 			</div>
 		)
 	}

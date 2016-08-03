@@ -24,6 +24,7 @@ const connectToDB = require('./config/db-setup.js').connectToDB
 let indexRouter = require('./routes/indexRouter.js')
 let authRouter = require('./routes/authRouter.js')
 let apiRouter = require('./routes/apiRouter.js')
+let wikiRouter = require('./routes/wikiRouter.js')
 
 // Load DB User Model (for appAuthentication configuration)
 let User = require('./db/schema.js').User
@@ -49,7 +50,7 @@ app.set('view engine', 'html');
 connectToDB(global.PROJECT_NAME)
 
 // =========
-// APPLICATION MIDDLEWARE 
+// APPLICATION MIDDLEWARE
 // =========
 app.use( express.static( __dirname + '/dist/assets') );
 app.use( bodyParser.json() );
@@ -61,7 +62,7 @@ app.use( passport.session() );
 appAuthentication(User)
 app.use( appMiddleWare.cookifyUser )
 
-// 
+//
 // =========
 // ROUTERS
 // =========
@@ -69,6 +70,7 @@ app.use( appMiddleWare.cookifyUser )
 app.use( '/', indexRouter )
 app.use( '/auth', authRouter )
 app.use( '/api', apiRouter )
+app.use( '/wiki', wikiRouter )
 
 app.use(appMiddleWare.errorHandler);
 
