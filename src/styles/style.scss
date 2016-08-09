@@ -27,6 +27,7 @@ $myWhite: #FFFFFF;
 		font-size: 100px;
 		color: $myLightBlue;
 		margin: 1%;
+		margin-bottom: -2.5%;
 	}
 	h2 {
 		color: $myRed;
@@ -43,6 +44,7 @@ $myWhite: #FFFFFF;
 			padding: 1.5%;
 			margin: 2%;
 			text-decoration: none;
+			border-radius: 10%;
 		}
 	}
 }
@@ -54,17 +56,36 @@ $myWhite: #FFFFFF;
 
 		margin-top: 5%;
 
-		h3 {
-			color: $myGreen;
-			margin-bottom: 5%;
+				color: $myGreen;
+
+		.startPoint{
+			padding-right: 10%;
+			padding-left: 10%;
+
+			h3 {
+				color: $myGreen;
+			}
+
+			p {
+				color: $myNavy2;
+			}
+		}
+
+		.endPoint {
+			padding-right: 10%;
+			padding-left: 10%;
+
+			p {
+				color: $myNavy2;
+				margin-bottom: 5%;
+			}
 		}
 
 		a {
-			margin-top: 10%;
+			border-radius: 10%;
 			background: $myPink;
 			color: $myWhite;
 			padding: 1.5%;
-			margin: 2%;
 			text-decoration: none;
 		}
 	}

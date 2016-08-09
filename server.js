@@ -5,8 +5,6 @@ if (!global.PROJECT_NAME) { //« set by npm run init-dev »
 }
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 
-
-
 const bodyParser = require('body-parser');
 const express = require('express');
 const cookieParser = require('cookie-parser');

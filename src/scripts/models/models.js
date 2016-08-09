@@ -14,9 +14,10 @@ const RandomArticleCollection = Backbone.Collection.extend({
 	url: 'https://en.wikipedia.org/api/rest_v1/page/random/title'
 })
 
-const StartURL = Backbone.Model.extend({
-
-})
+// const ArticleSumModel = Backbone.Model.extend({
+// 	url: 'https://en.wikipedia.org/api/rest_v1/page/summary/',
+// 	title: 'summary'
+// })
 
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
@@ -80,4 +81,4 @@ const User = UserAuthModel.extend({
 	}
 })
 
-export { User, RandomArticleModel, RandomArticleCollection }
+export { User, RandomArticleModel, RandomArticleCollection}

@@ -17,7 +17,6 @@ const NavBar = React.createClass({
 		return (
 			<div id = 'navBar'>
 				<a href = '#home'>Home</a>
-				<a href = '#about'>About</a>
 			</div>
 		)
 	}

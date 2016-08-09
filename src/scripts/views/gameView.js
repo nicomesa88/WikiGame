@@ -11,21 +11,24 @@ const GameView = React.createClass({
 		return GAME_STORE.getData()
 	},
 
-	// componentWillMount: function() {
-	// 	ACTIONS.fetchArticleText(this.state.startColl)
-	// 	GAME_STORE.on('updateComponent', () => {
-	// 		this.setState(GAME_STORE.getData())
-	// 	})
+	componentWillMount: function() {
+		ACTIONS.initClicks()
+		GAME_STORE.on('updateComponent', () => {
+			this.setState(GAME_STORE.getData())
+		})
+	},
 
-
-	// },
+	componentWillUnmount: function() {
+		ACTIONS.initClicks()
+		GAME_STORE.off('updateComponent')
+	},
 
 	render: function(){
 		return (
 			<div className = 'gameContainer'>
 			<Header />
-			<Sidebar endPoint = {this.state.endTitle}/>
-			<WikiContainer articleHTML = {this.state.articleHTML}/>
+			<Sidebar startPoint = {this.state.startTitle} endPoint = {this.state.endTitle} clicks = {this.state.clicks}/>
+			<WikiContainer endPoint= {this.state.endTitle} articleHTML = {this.state.articleHTML}/>
 			</div>
 		)
 	}
@@ -33,19 +36,25 @@ const GameView = React.createClass({
 
 const Sidebar = React.createClass({
 
+	getStartArticle: function(){
+		ACTIONS.getStartArticle()
+		return
+	},
+
 	getEndArticle: function(){
 		ACTIONS.getEndArticle()
 		return
 	},
 
-
 	render: function(){
 		return (
 			<div className = 'sidebar'>
-				<h3>Goal: {this.props.endPoint.replace(/_/ig, ' ')} </h3>
-				<h3> Clicks: 0 </h3>
-				<h3> Time: </h3>
-				<h3> Path: </h3>
+				<h3>Goal: Get from {this.props.startPoint.replace(/_/ig, ' ')} to {this.props.endPoint.replace(/_/ig, ' ')} </h3>
+				<h3> Clicks: {this.props.clicks} </h3>
+				{//<h3> Time: </h3>
+				}
+				{//<h3> Path: </h3>
+				}
 			</div>
 		)
 	}
@@ -58,15 +67,26 @@ const WikiContainer = React.createClass({
 		return
 	},
 
+
 	articleLink: function(clickEvent){
 		clickEvent.preventDefault()
-
+		if(clickEvent.target.tagName === 'A'){
+			ACTIONS.fetchArticleText(clickEvent.target.title.replace(/ /g, '_'))
+			return
+		}
 	},
+
+
+	checkForWin:function(){
+		ACTIONS.checkForWin
+		return
+	},
+
 
 	render: function() {
 		return (
 			<div className = 'wikiView'>
-				<span dangerouslySetInnerHTML = {{__html: this.props.articleHTML}} onClick = {this.articleLink}/>
+				<span dangerouslySetInnerHTML = {{__html: this.props.articleHTML}} onClick = {this.articleLink} />
 			</div>
 		)
 	}

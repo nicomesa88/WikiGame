@@ -5,7 +5,7 @@ const LoginView = React.createClass({
 	render: function() {
 		return (
 			<div className = 'loginView'>
-				<Header/>
+				<Header />
 			</div>
 		)
 	}

@@ -13,7 +13,8 @@ const GAME_STORE = _.extend(Backbone.Events,{
 		endTitle: "",
 		articleHTML: '',
 		articlePath: [],
-		gameTime: 0
+		clicks: 0,
+		win: false
 	},
 
 	getData: function(){
@@ -25,7 +26,7 @@ const GAME_STORE = _.extend(Backbone.Events,{
 	},
 
 	set: function(prop,value) {
-		console.log('setting ' + prop + ' with ' + value)
+		// console.log('setting ' + prop + ' with ' + value)
 		if (this.data[prop] === undefined) {
 			throw new Error("that thing don't exist in data")
 		}

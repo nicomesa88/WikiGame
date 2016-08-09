@@ -9,12 +9,10 @@ import Home from './views/homeView'
 import GameView from './views/gameView'
 import LoginView from './views/loginView'
 
-console.log('yolo4')
-
 const app = function() {
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			'':'handleHome',
+			'home':'handleHome',
 			'game?start=:startArticle&end=:endArticle':'handleLiveGame',
 			'about': 'handleAbout',
 			'login': 'handleLogin',
@@ -39,7 +37,7 @@ const app = function() {
 		},
 
 		redirectHome: function() {
-			location.hash = ''
+			location.hash = 'home'
 		},
 
 		initialize: function(){
