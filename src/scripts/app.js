@@ -7,7 +7,6 @@ import {RandomArticleModel, RandomArticleCollection} from './models/models'
 import About from './views/aboutView'
 import Home from './views/homeView'
 import GameView from './views/gameView'
-import LoginView from './views/loginView'
 
 const app = function() {
 	var AppRouter = Backbone.Router.extend({
@@ -15,7 +14,6 @@ const app = function() {
 			'home':'handleHome',
 			'game?start=:startArticle&end=:endArticle':'handleLiveGame',
 			'about': 'handleAbout',
-
 			'*cathAll': 'redirectHome'
 		},
 
