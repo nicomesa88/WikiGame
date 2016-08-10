@@ -52,19 +52,25 @@ const ACTIONS = {
 		var promise = $.getJSON('/wiki/article', {
 			url: `${articleURL}?action=parseAMPERSANDformat=jsonAMPERSANDprop=textAMPERSANDpage=${title}`
 		})
-
-
 		promise.then(function(response){
 			var responseObj = JSON.parse(response)
 			GAME_STORE.set('clicks', GAME_STORE.data.clicks += 1)
 			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
+			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += '"' + title +'"' + ', ')
 		})
 
 	},
 
 	initClicks: function() {
+		// if(GAME_STORE.data.clicks === false){
+		// 	GAME_STORE.set('clicks', 0)
+		// }
 		// // GAME_STORE.data.clicks = 0
-		GAME_STORE.set('clicks', GAME_STORE.data.clicks === 0)
+		GAME_STORE.set('clicks', 0)
+	},
+
+	initPath: function() {
+		GAME_STORE.set('articlePath', ' ')
 	},
 
 	checkForWin: function(title){

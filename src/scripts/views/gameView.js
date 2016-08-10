@@ -20,6 +20,7 @@ const GameView = React.createClass({
 
 	componentWillUnmount: function() {
 		ACTIONS.initClicks()
+		ACTIONS.initPath()
 		GAME_STORE.off('updateComponent')
 	},
 
@@ -27,7 +28,7 @@ const GameView = React.createClass({
 		return (
 			<div className = 'gameContainer'>
 			<Header />
-			<Sidebar startPoint = {this.state.startTitle} endPoint = {this.state.endTitle} clicks = {this.state.clicks}/>
+			<Sidebar startPoint = {this.state.startTitle} endPoint = {this.state.endTitle} clicks = {this.state.clicks} path = {this.state.articlePath} endSum = {this.state.endSummary}/>
 			<WikiContainer endPoint= {this.state.endTitle} articleHTML = {this.state.articleHTML}/>
 			</div>
 		)
@@ -46,14 +47,16 @@ const Sidebar = React.createClass({
 		return
 	},
 
+
 	render: function(){
 		return (
 			<div className = 'sidebar'>
 				<h3>Goal: Get from {this.props.startPoint.replace(/_/ig, ' ')} to {this.props.endPoint.replace(/_/ig, ' ')} </h3>
+				<p> {this.props.endPoint.replace(/_/ig, ' ')}: {this.props.endSum.split('. ')[0]}</p>
 				<h3> Clicks: {this.props.clicks} </h3>
 				{//<h3> Time: </h3>
 				}
-				,v<h3> Path: </h3>
+				<h3> Path: {this.props.path.replace(/_/ig, ' ')}</h3>
 			</div>
 		)
 	}

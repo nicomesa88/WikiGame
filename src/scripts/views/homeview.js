@@ -13,7 +13,6 @@ const Home = React.createClass({
 	},
 
 	componentWillMount: function(){
-		ACTIONS.initClicks()
 		ACTIONS.getStartArticle()
 		ACTIONS.getEndArticle()
 		ACTIONS.getStartSummary()
@@ -25,7 +24,6 @@ const Home = React.createClass({
 
 	componentWillUnmount: function() {
 		ACTIONS.initClicks()
-
 		GAME_STORE.off('updateComponent')
 	},
 
