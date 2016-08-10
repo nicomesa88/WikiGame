@@ -53,8 +53,7 @@ const Sidebar = React.createClass({
 				<h3> Clicks: {this.props.clicks} </h3>
 				{//<h3> Time: </h3>
 				}
-				{//<h3> Path: </h3>
-				}
+				,v<h3> Path: </h3>
 			</div>
 		)
 	}

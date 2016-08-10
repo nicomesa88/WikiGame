@@ -67,10 +67,10 @@ const ACTIONS = {
 		GAME_STORE.set('clicks', GAME_STORE.data.clicks === 0)
 	},
 
-	checkForWin: function(title, endingTitle){
-		if(GAME_STORE.data.clicks > 1 && title === endingTitle) {
+	checkForWin: function(title){
+		if(GAME_STORE.data.clicks > 1 && GAME_STORE.data.startTitle === GAME_STORE.data.endTitle) {
 			GAME_STORE.set('win', true)
-			alert('You Won!')
+			alert(`You Win! You reached your goal in ${GAME_STORE.data.clicks}`)
 		}
 	}
 

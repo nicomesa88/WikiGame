@@ -60,6 +60,7 @@ app.use( passport.session() );
 appAuthentication(User)
 app.use( appMiddleWare.cookifyUser )
 
+app.use( appMiddleWare.parseQuery )
 //
 // =========
 // ROUTERS
