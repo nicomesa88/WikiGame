@@ -56,7 +56,7 @@ const Sidebar = React.createClass({
 				<h3> Clicks: {this.props.clicks} </h3>
 				{//<h3> Time: </h3>
 				}
-				<h3> Path: {this.props.path.replace(/_/ig, ' ')}</h3>
+				<h3> Path: {this.props.path}</h3>
 			</div>
 		)
 	}
@@ -79,7 +79,7 @@ const WikiContainer = React.createClass({
 	},
 
 
-	checkForWin:function(){
+	checkForWin:function(endingTitle){
 		ACTIONS.checkForWin
 		return
 	},
