@@ -15,7 +15,7 @@ const app = function() {
 			'home':'handleHome',
 			'game?start=:startArticle&end=:endArticle':'handleLiveGame',
 			'about': 'handleAbout',
-			'login': 'handleLogin',
+
 			'*cathAll': 'redirectHome'
 		},
 
@@ -32,9 +32,7 @@ const app = function() {
 			ReactDOM.render( <GameView articleHTML = {RandomArticleCollection}/>, document.querySelector('.container'))
 		},
 
-		handleLogin:function() {
-			ReactDOM.render( <LoginView/>, document.querySelector('.container'))
-		},
+
 
 		redirectHome: function() {
 			location.hash = 'home'
