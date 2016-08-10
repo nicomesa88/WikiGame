@@ -21,6 +21,7 @@ const ACTIONS = {
 			var endingTitle = response.items[0].title
 			GAME_STORE.set('endTitle', endingTitle)
 			this.getEndSummary(endingTitle)
+			this.checkForWin(endingTitle)
 		})
 	},
 
@@ -66,10 +67,11 @@ const ACTIONS = {
 		GAME_STORE.set('clicks', GAME_STORE.data.clicks === 0)
 	},
 
-	checkForWin: function(title){
-
-			// GAME_STORE.set('win', true)
-			// alert('You Won!')
+	checkForWin: function(title, endingTitle){
+		if(GAME_STORE.data.clicks > 1 && title === endingTitle) {
+			GAME_STORE.set('win', true)
+			alert('You Won!')
+		}
 	}
 
 }
