@@ -12,6 +12,7 @@ const GameView = React.createClass({
 	},
 
 	componentWillMount: function() {
+		ACTIONS.setPath(this.props.startTitle, this.props.endTitle)
 		ACTIONS.initClicks()
 		GAME_STORE.on('updateComponent', () => {
 			this.setState(GAME_STORE.getData())
@@ -25,6 +26,7 @@ const GameView = React.createClass({
 	},
 
 	render: function(){
+		console.log(GAME_STORE.data)
 		return (
 			<div className = 'gameContainer'>
 			<Header />

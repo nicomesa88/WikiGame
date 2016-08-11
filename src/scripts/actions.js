@@ -22,6 +22,7 @@ const ACTIONS = {
 			GAME_STORE.set('endTitle', endingTitle)
 			this.getEndSummary(endingTitle)
 			this.checkForWin(endingTitle)
+			this.fetchArticleText(endingTitle)
 		})
 	},
 
@@ -61,11 +62,30 @@ const ACTIONS = {
 
 	},
 
+	setPath: function(startTitle, endTitle) {
+		var articleURL = 'https://en.wikipedia.org/w/api.php'
+		var promise = $.getJSON('/wiki/article', {
+			url: `${articleURL}?action=parseAMPERSANDformat=jsonAMPERSANDprop=textAMPERSANDpage=${startTitle}`
+		})
+		promise.then(function(response){
+			var responseObj = JSON.parse(response)
+			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
+			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += startTitle.replace(/_/ig, ' ') + ', ')
+		})
+		GAME_STORE.set('startTitle', startTitle)
+		GAME_STORE.set('endTitle', endTitle)
+		var sumURL = 'https://en.wikipedia.org/api/rest_v1/page/summary/'
+		var promise = $.getJSON({
+			url: `${sumURL + endTitle}`
+		})
+		promise.then(function(response){
+			console.log(response.extract)
+			GAME_STORE.set('endSummary', response.extract)
+		})
+
+	},
+
 	initClicks: function() {
-		// if(GAME_STORE.data.clicks === false){
-		// 	GAME_STORE.set('clicks', 0)
-		// }
-		// // GAME_STORE.data.clicks = 0
 		GAME_STORE.set('clicks', 0)
 	},
 

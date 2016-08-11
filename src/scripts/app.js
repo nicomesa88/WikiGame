@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import {RandomArticleModel, RandomArticleCollection} from './models/models'
-
 import About from './views/aboutView'
 import Home from './views/homeView'
 import GameView from './views/gameView'
@@ -27,10 +26,8 @@ const app = function() {
 
 		handleLiveGame: function(startArticle, endArticle) {
 			console.log(startArticle,endArticle)
-			ReactDOM.render( <GameView articleHTML = {RandomArticleCollection}/>, document.querySelector('.container'))
+			ReactDOM.render( <GameView articleHTML = {RandomArticleCollection} startTitle = {startArticle} endTitle = {endArticle}/>, document.querySelector('.container'))
 		},
-
-
 
 		redirectHome: function() {
 			location.hash = 'home'
