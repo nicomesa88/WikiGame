@@ -73,6 +73,8 @@
     "passport-local": "^1.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "request": "^2.74.0"
+    "request": "^2.74.0",
+    "toastr": "^2.1.2",
+    "tostr": "^0.1.0"
   }
 }

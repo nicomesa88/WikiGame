@@ -14,7 +14,9 @@ const GAME_STORE = _.extend(Backbone.Events,{
 		articleHTML: '',
 		articlePath: [],
 		clicks: 0,
-		win: false
+		win: false,
+		playShowing: false,
+		welcomeShowing: true
 	},
 
 	getData: function(){

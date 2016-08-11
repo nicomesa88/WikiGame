@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Welcome from './welcome'
 import ACTIONS from '../actions'
 import {RandomArticleModel, RandomArticleCollection, ArticleSumModel} from '../models/models'
 import GAME_STORE from '../store'
@@ -30,12 +31,15 @@ const Home = React.createClass({
 	render: function(){
 		return (
 			<div className = 'home'>
+				<Welcome />
 				<Header />
 				<ChallengeBox startColl = {this.state.startTitle} endColl = {this.state.endTitle} startSum = {this.state.startSummary} endSum = {this.state.endSummary}/>
 			</div>
 		)
 	}
 })
+
+
 
 const ChallengeBox = React.createClass({
 

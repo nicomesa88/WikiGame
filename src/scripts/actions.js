@@ -11,7 +11,7 @@ const ACTIONS = {
 			GAME_STORE.set('startTitle',title)
 			this.fetchArticleText(title)
 			this.getStartSummary(title)
-			this.checkForWin(title)
+
 		})
 	},
 
@@ -21,7 +21,6 @@ const ACTIONS = {
 			var endingTitle = response.items[0].title
 			GAME_STORE.set('endTitle', endingTitle)
 			this.getEndSummary(endingTitle)
-			this.checkForWin(endingTitle)
 			this.fetchArticleText(endingTitle)
 		})
 	},
@@ -58,12 +57,11 @@ const ACTIONS = {
 			GAME_STORE.set('clicks', GAME_STORE.data.clicks += 1)
 			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
 			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += title.replace(/_/ig, ' ') + ', ')
-
-
 		})
-		if (title === GAME_STORE.data.endTitle) {
-				alert('You Won!')
-			}
+		if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
+			GAME_STORE.set('win', true)
+			alert('You Won!')
+		}
 
 	},
 
@@ -98,15 +96,9 @@ const ACTIONS = {
 		GAME_STORE.set('articlePath', ' ')
 	},
 
-	// checkForWin: function(endingTitle){
-	// 	var articlePath = GAME_STORE.data.articlePath
-	// 	for(var i = 0; i < articlePath.length; i++) {
-	// 		if (articlePath[i].split(', ') === endingTitle.replace(/_/ig, ' ') + ', ') {
-	// 			GAME_STORE.set('win', true)
-	// 			alert(`You Win! You reached your goal in ${GAME_STORE.data.clicks}`)
-	// 		}
-	// 	}
-	// }
+	letPlay: function(){
+		GAME_STORE.set('welcomeShowing', false)
+	}
 
 }
 

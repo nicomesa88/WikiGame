@@ -6,7 +6,7 @@ $myGreen: #469E7B;
 $myGreen2: #7CC9A5;
 $myPurple: #A06497;
 $myPink: #E283AB;
-$myNavy: #374355;
+$myNavy: #374340;
 $myNavy2: #2C587D;
 $myLightBlue: #51B5E8;
 $myLightBlue2: #37B4CA;
@@ -17,6 +17,55 @@ $myWhite: #FFFFFF;
 	font-family: 'Muli', Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
 	background: $myOffWhite;
+}
+
+.welcomeBox {
+	border: 3px solid $myNavy;
+	width: 75%;
+	height: 75%;
+	display: block;
+	position: absolute;
+	background:$myNavy2;
+	top: 14%;
+	left: 50%;
+	transform: translate(-50%);
+	border-radius: 6%;
+
+
+	h1 {
+		font-size: 50px;
+		margin-top: 5%;
+		margin-left: 1%;
+		margin-right: 1%;
+		background:$myNavy2;
+		color: $myLightBlue;
+	}
+
+	h3 {
+		font-size: 25px;
+		background: $myNavy2;
+		color: $myGreen2;
+		margin-top: 5%;
+		margin-bottom: 8%;
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+
+	a {
+		font-size: 25px;
+		background: orangered;
+		color: $myWhite;
+		padding: 1.5%;
+		margin: 2%;
+		padding-left: 10%;
+		padding-right: 10%;
+		text-decoration: none;
+		border-radius: 4%;
+		margin-top: 90%;
+	}
+	&.hidden {
+		display: none;
+	}
 }
 
 #headerContainer {
