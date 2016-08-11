@@ -11,6 +11,7 @@ const ACTIONS = {
 			GAME_STORE.set('startTitle',title)
 			this.fetchArticleText(title)
 			this.getStartSummary(title)
+			this.checkForWin(title)
 
 		})
 	},
@@ -58,10 +59,10 @@ const ACTIONS = {
 			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
 			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += title.replace(/_/ig, ' ') + ', ')
 		})
-		if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
-			GAME_STORE.set('win', true)
-			alert('You Won!')
-		}
+		// if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
+		// 	GAME_STORE.set('win', true)
+		// 	alert('You Won!')
+		// }
 
 	},
 
@@ -94,6 +95,13 @@ const ACTIONS = {
 
 	initPath: function() {
 		GAME_STORE.set('articlePath', ' ')
+	},
+
+	checkForWin: function(title){
+		if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
+			GAME_STORE.set('win', true)
+			alert('You Won!')
+		}
 	},
 
 	letPlay: function(){
