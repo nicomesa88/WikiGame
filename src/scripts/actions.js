@@ -11,7 +11,6 @@ const ACTIONS = {
 			GAME_STORE.set('startTitle',title)
 			this.fetchArticleText(title)
 			this.getStartSummary(title)
-			this.checkForWin(title)
 
 		})
 	},
@@ -22,7 +21,6 @@ const ACTIONS = {
 			var endingTitle = response.items[0].title
 			GAME_STORE.set('endTitle', endingTitle)
 			this.getEndSummary(endingTitle)
-			this.fetchArticleText(endingTitle)
 		})
 	},
 
@@ -57,13 +55,12 @@ const ACTIONS = {
 			var responseObj = JSON.parse(response)
 			GAME_STORE.set('clicks', GAME_STORE.data.clicks += 1)
 			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
-			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += title.replace(/_/ig, ' ') + ', ')
+			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath + title.replace(/_/ig, ' ') + ', ')
 		})
-		// if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
-		// 	GAME_STORE.set('win', true)
-		// 	alert('You Won!')
-		// }
-
+		if (GAME_STORE.data.clicks > 0 && title === GAME_STORE.data.endTitle) {
+			GAME_STORE.set('win', true)
+			alert('You Won!')
+		}
 	},
 
 	setPath: function(startTitle, endTitle) {
@@ -74,9 +71,13 @@ const ACTIONS = {
 		promise.then(function(response){
 			var responseObj = JSON.parse(response)
 			GAME_STORE.set('articleHTML', responseObj.parse.text['*'])
-			GAME_STORE.set('articlePath', GAME_STORE.data.articlePath += startTitle.replace(/_/ig, ' ') + ', ')
+			if (GAME_STORE.data.articlePath === ''){
+				GAME_STORE.set('articlePath', GAME_STORE.data.articlePath + startTitle.replace(/_/ig, ' ') + ', ')
+			}
 		})
-		GAME_STORE.set('startTitle', startTitle)
+		// if (GAME_STORE.data.startTitle === '') {
+			GAME_STORE.set('startTitle', startTitle)
+		// }
 		GAME_STORE.set('endTitle', endTitle)
 		var sumURL = 'https://en.wikipedia.org/api/rest_v1/page/summary/'
 		var promise = $.getJSON({
@@ -95,13 +96,6 @@ const ACTIONS = {
 
 	initPath: function() {
 		GAME_STORE.set('articlePath', ' ')
-	},
-
-	checkForWin: function(title){
-		if (GAME_STORE.data.clicks >= 1 && title === GAME_STORE.data.endTitle) {
-			GAME_STORE.set('win', true)
-			alert('You Won!')
-		}
 	},
 
 	letPlay: function(){

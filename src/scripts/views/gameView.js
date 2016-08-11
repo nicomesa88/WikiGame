@@ -48,9 +48,13 @@ const Sidebar = React.createClass({
 		return
 	},
 
+	setPath: function(){
+		ACTIONS.setPath()
+		return
+	},
+
 
 	render: function(){
-		console.log(typeof GAME_STORE.data.articlePath)
 		return (
 			<div className = 'sidebar'>
 				<h3>Goal: Get from {this.props.startPoint.replace(/_/ig, ' ')} to {this.props.endPoint.replace(/_/ig, ' ')} </h3>

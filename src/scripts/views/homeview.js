@@ -14,6 +14,7 @@ const Home = React.createClass({
 	},
 
 	componentWillMount: function(){
+		ACTIONS.initClicks()
 		ACTIONS.getStartArticle()
 		ACTIONS.getEndArticle()
 		ACTIONS.getStartSummary()

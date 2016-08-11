@@ -15,7 +15,6 @@ const GAME_STORE = _.extend(Backbone.Events,{
 		articlePath: [],
 		clicks: 0,
 		win: false,
-		playShowing: false,
 		welcomeShowing: true
 	},
 
