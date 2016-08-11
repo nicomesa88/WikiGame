@@ -27,7 +27,7 @@ const Win = React.createClass({
 				<h1> CONGRATS! YOU WON! </h1>
 				<h3>You made it to the goal in {this.state.clicks} clicks.</h3>
 				<h3>Reload the page to try to beat your score, or copy and past the URL to challenege a friend.  If you would like to play a new game click the button below</h3>
-				<a href = '#home' onClick = {this.winReset}>PLAY</a>
+				<a href = '#home' onClick = {this.winReset}>PLAY AGAIN</a>
 			</div>
 		)
 	},
