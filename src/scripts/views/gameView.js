@@ -26,7 +26,6 @@ const GameView = React.createClass({
 	},
 
 	render: function(){
-		console.log(GAME_STORE.data)
 		return (
 			<div className = 'gameContainer'>
 			<Header />
@@ -51,6 +50,7 @@ const Sidebar = React.createClass({
 
 
 	render: function(){
+		console.log(typeof GAME_STORE.data.articlePath)
 		return (
 			<div className = 'sidebar'>
 				<h3>Goal: Get from {this.props.startPoint.replace(/_/ig, ' ')} to {this.props.endPoint.replace(/_/ig, ' ')} </h3>
@@ -59,6 +59,7 @@ const Sidebar = React.createClass({
 				{//<h3> Time: </h3>
 				}
 				<h3> Path: {this.props.path}</h3>
+
 			</div>
 		)
 	}
