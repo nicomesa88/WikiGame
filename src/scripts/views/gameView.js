@@ -95,6 +95,6 @@ const WikiContainer = React.createClass({
 			</div>
 		)
 	}
-})
+}
 
 export default GameView
