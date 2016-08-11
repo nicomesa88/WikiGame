@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Win from './win'
 import ACTIONS from '../actions'
 import GAME_STORE from '../store'
 import {RandomArticleModel, RandomArticleCollection} from '../models/models'
@@ -28,6 +29,7 @@ const GameView = React.createClass({
 	render: function(){
 		return (
 			<div className = 'gameContainer'>
+			<Win />
 			<Header />
 			<Sidebar startPoint = {this.state.startTitle} endPoint = {this.state.endTitle} clicks = {this.state.clicks} path = {this.state.articlePath} endSum = {this.state.endSummary}/>
 			<WikiContainer endPoint= {this.state.endTitle} articleHTML = {this.state.articleHTML}/>

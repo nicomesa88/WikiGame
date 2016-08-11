@@ -68,6 +68,59 @@ $myWhite: #FFFFFF;
 	}
 }
 
+.winBox {
+	border: 3px solid $myNavy;
+	width: 75%;
+	height: 75%;
+	display: block;
+	position: absolute;
+	background:rgba(44,88,125,0.9);
+	top: 14%;
+	left: 50%;
+	transform: translate(-50%);
+	border-radius: 6%;
+
+	h1 {
+		text-align: center;
+		font-size: 50px;
+		margin-top: 5%;
+		margin-left: 1%;
+		margin-right: 1%;
+		background: none;
+		color: $myLightBlue;
+	}
+
+	h3 {
+		text-align: center;
+		font-size: 25px;
+		background: none;
+		color: $myGreen2;
+		margin-top: 5%;
+		margin-bottom: 8%;
+		margin-left: 3%;
+		margin-right: 3%;
+	}
+
+	a {
+		text-align: center;
+		font-size: 25px;
+		background: orangered;
+		color: $myWhite;
+		padding: 1.5%;
+		margin: 2%;
+		padding-left: 10%;
+		padding-right: 10%;
+		text-decoration: none;
+		border-radius: 4%;
+		margin-top: 90%;
+		margin-left: 33%;
+	}
+
+	&.hidden {
+		display: none;
+	}
+}
+
 #headerContainer {
 
 	text-align: center;

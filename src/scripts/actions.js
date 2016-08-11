@@ -59,7 +59,6 @@ const ACTIONS = {
 		})
 		if (GAME_STORE.data.clicks > 0 && title === GAME_STORE.data.endTitle) {
 			GAME_STORE.set('win', true)
-			alert('You Won!')
 		}
 	},
 
@@ -98,8 +97,12 @@ const ACTIONS = {
 		GAME_STORE.set('articlePath', ' ')
 	},
 
-	letPlay: function(){
+	letPlay: function() {
 		GAME_STORE.set('welcomeShowing', false)
+	},
+
+	winStoreReset: function() {
+		GAME_STORE.set('win', false)
 	}
 
 }
