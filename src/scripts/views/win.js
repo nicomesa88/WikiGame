@@ -30,8 +30,14 @@ const Win = React.createClass({
 				<a href = '#home' onClick = {this.winReset}>LET'S PLAY</a>
 			</div>
 		)
+	},
+
+	something: function(){
+
 	}
 })
+
+
 
 
 export default Win
