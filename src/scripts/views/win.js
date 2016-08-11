@@ -15,7 +15,6 @@ const Win = React.createClass({
 	},
 
 	winReset: function(clickEvent) {
-		clickEvent.preventDefault()
 		if(clickEvent.target.tagName === 'A'){
 			ACTIONS.winStoreReset()
 			return
